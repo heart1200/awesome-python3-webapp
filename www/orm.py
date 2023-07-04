@@ -273,38 +273,38 @@ async def close_db(app):
 
 
 # 测试代码示例：
-if __name__ == '__main__':
-    import asyncio
-
-    loop = asyncio.get_event_loop()
-
-
-    async def test():
-        class User(Model):
-            __table__ = 'user'
-
-            id = IntegerField(primary_key=True)
-            name = StringField()
-
-        await create_pool(loop=loop,
-                          host='localhost',
-                          port=3306,
-                          user='root',
-                          password='123456',
-                          db='test')
-
-        user1 = User(id=1, name='Tom')
-
-        await user1.save()
-
-        user2 = await User.find(1)
-
-        print(user2.name)
-
-        user3 = await User.findAll()
-
-        print(user3[0].name)
-
-
-    loop.run_until_complete(test())
+# if __name__ == '__main__':
+#     import asyncio
+#
+#     loop = asyncio.get_event_loop()
+#
+#
+#     async def test():
+#         class User(Model):
+#             __table__ = 'user'
+#
+#             id = IntegerField(primary_key=True)
+#             name = StringField()
+#
+#         await create_pool(loop=loop,
+#                           host='localhost',
+#                           port=3306,
+#                           user='root',
+#                           password='123456',
+#                           db='test')
+#
+#         user1 = User(id=1, name='Tom')
+#
+#         await user1.save()
+#
+#         user2 = await User.find(1)
+#
+#         print(user2.name)
+#
+#         user3 = await User.findAll()
+#
+#         print(user3[0].name)
+#
+#
+#     loop.run_until_complete(test())
 
